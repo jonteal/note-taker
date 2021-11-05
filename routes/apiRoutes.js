@@ -8,9 +8,16 @@ const db = require('../db/db.json');
 
 const router = express.Router();
 
-const { readFromFile, writeToFile, readAndAppend } = require('./helpers/fs');
+const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fs');
 
-router.get('/api/notes', (req, res) => res.json(db));
+router.get('/api/notes', (req, res) => {
+    readFromFile('./db/db.json').then((data) => 
+    res.json(JSON.parse(data))
+    )
+    .catch((err) => console.log(err))
+});
+
+
 
 router.post('/api/notes', (req, res) => {
     const { title, text } = req.body;
@@ -20,6 +27,8 @@ router.post('/api/notes', (req, res) => {
         text,
         id: uuid(),
     };
+
+    readAndAppend(newNote, './db/db.json');
 
     console.log(req.body);
     res.json(newNote);
