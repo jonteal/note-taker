@@ -18,7 +18,7 @@ router.post('/api/notes', (req, res) => {
     const newNote = {
         title,
         text,
-        id: uniqid();
+        id: uniqid(),
     };
 
     console.log(req.body);
