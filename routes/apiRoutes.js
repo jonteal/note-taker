@@ -3,7 +3,7 @@
 const express = require("express");
 const fs = require('fs');
 const path = require('path');
-const uniqid = require('uniqid');
+const uuid = require('uuid');
 const db = require('../db/db.json');
 
 const router = express.Router();
@@ -18,7 +18,7 @@ router.post('/api/notes', (req, res) => {
     const newNote = {
         title,
         text,
-        id: uniqid(),
+        id: uuid(),
     };
 
     console.log(req.body);
