@@ -16,17 +16,3 @@ app.use(express.json());
 
 app.use(apiRoute);
 app.use(htmlRoute);
-
-// app.get('/', (req, res) => {
-//     res.send('Navigate to /index or /notes');
-// });
-
-// app.get('/index', (req, res) => 
-//     res.index(path.join(__dirname, 'public/index.html'))
-// );
-
-// app.get('/notes', (req, res) => 
-//     res.notes(path.join(__dirname, 'public/notes.html'))
-// );
-
-// app.get('/')
