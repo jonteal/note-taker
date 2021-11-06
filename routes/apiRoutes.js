@@ -3,12 +3,11 @@
 const express = require("express");
 const fs = require('fs');
 const path = require('path');
-const uuid = require('uuid');
 const db = require('../db/db.json');
 
-const router = express.Router();
+const router = require('express').Router();
 
-const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fs');
+// const { readFromFile, writeToFile, readAndAppend } = require('./helpers');
 
 router.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => 

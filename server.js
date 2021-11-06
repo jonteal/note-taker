@@ -7,10 +7,16 @@ const app = express();
 const htmlRoute = require('./routes/htmlRoutes');
 const apiRoute = require('./routes/apiRoutes');
 
-const port = process.env.port || 3001;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+// Sets the port up for the listener
+const PORT = process.env.PORT || 3001;
 
-app.use(express.static('public'));  // loads the root file, links the js file, and the css file
+
+app.listen(PORT, () => 
+    console.log(`Listening on port http://localhost:${PORT}...`)
+);
+
+// Loads the static files like the javascript and css files
+app.use(express.static('public'));  
 
 
 app.use(express.json());
