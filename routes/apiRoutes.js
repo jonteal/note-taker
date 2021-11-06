@@ -4,10 +4,11 @@ const express = require("express");
 const fs = require('fs');
 const path = require('path');
 const db = require('../db/db.json');
+const uniqid = require('uniqid');
 
 const router = require('express').Router();
 
-// const { readFromFile, writeToFile, readAndAppend } = require('./helpers');
+const { readFromFile, writeToFile, readAndAppend } = require('./fs');
 
 router.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => 
@@ -24,7 +25,7 @@ router.post('/api/notes', (req, res) => {
     const newNote = {
         title,
         text,
-        id: uuid(),
+        id: uniqid(),
     };
 
     readAndAppend(newNote, './db/db.json');
