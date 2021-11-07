@@ -42,7 +42,7 @@ router.post('/api/notes', (req, res) => {
     };
 
     // reads and then appends the newNote object to the db/db.json endpoint
-    readAndAppend(newNote, './db/db.json');
+    readAndAppend(newNote, '');
 
     // Prints the req.body to the console
     console.log(req.body);
