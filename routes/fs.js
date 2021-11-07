@@ -1,4 +1,7 @@
+// Requiring the file system library
 const fs = require('fs');
+
+// Requiring the util module 
 const util = require('util');
 
 // Promise version of fs.readFile
@@ -33,6 +36,7 @@ const readAndAppend = (content, file) => {
     });
 };
 
+// Exporting the readFromFile, writeToFile, and readAndAppend functions
 module.exports = {
     readFromFile,
     writeToFile,

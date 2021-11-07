@@ -1,9 +1,11 @@
+// Declaring variables
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// Conditional statement setting variables to HTML elements
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -25,6 +27,7 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+// Fetch function to GET value from api/notes path
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -33,6 +36,7 @@ const getNotes = () =>
     },
   });
 
+// Fetch function to POST value from api/notes path
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -42,6 +46,7 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
+// Fetch function to DELETE value from api/notes/id path
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -50,6 +55,7 @@ const deleteNote = (id) =>
     },
   });
 
+// Function to render an active note
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
@@ -66,6 +72,7 @@ const renderActiveNote = () => {
   }
 };
 
+// Function to Save the User's note and generate a new empty note
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
@@ -102,12 +109,13 @@ const handleNoteView = (e) => {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
 };
 
+// Save button show/hide conditional 
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
