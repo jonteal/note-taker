@@ -16,7 +16,7 @@ app.listen(PORT, () =>
 const path = require('path');
 
 
-const api = require('./routes/apiRoutes.js');
+const api = require('./routes/indexRoutes.js');
 
 
 
@@ -27,7 +27,7 @@ app.use(htmlRoute);
 
 
 
-const apiRoute = require('./routes/apiRoutes');
+const apiRoute = require('./routes/indexRoutes');
 
 
 app.use(apiRoute);
