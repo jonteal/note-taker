@@ -1,15 +1,15 @@
-
+// Require Setups
 const router = require('express').Router();
 const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const uniqid = require('uniqid');
 const { json } = require('express');
 
-
+// GET function from gets notes from api router
 router.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-// POST Route for a new note
+// POST function for a new note
 router.post('/api/notes', (req, res) => {
     console.log(req.body);
 
@@ -40,7 +40,6 @@ router.delete('/api/notes/:id', (req, res) => {
         const newDb = writeToFile('./db/db.json', result)
         return newDb
     }).then(db => res.json(db))
-
 })
 
 module.exports = router;
