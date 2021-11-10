@@ -18,5 +18,6 @@ router.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/index.html'))
 );
 
+
 // Exports the router
 module.exports = router;
